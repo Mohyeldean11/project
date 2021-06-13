@@ -28,32 +28,32 @@ int main(void)
    
    
    /*setting the SPI PINS*/
-   set_pin_status(PORTB,PIN4,OUTPUT);
+   set_pin_status(PORTA,PIN0,OUTPUT);
    set_pin_status(PORTB,PIN5,OUTPUT);
    set_pin_status(PORTB,PIN6,INPUT_FLOAT);
    set_pin_status(PORTB,PIN7,OUTPUT);
-    
-	
+ 
    /*initializing the UART*/
    UART_INIT(BAUD_RATE_9600);
    
    
    /*initializing the SPI*/
-   spi_init(SPI_MASTER_DEVICE,SPI_MSB_FIRST,SPI_SAMPLE_R_SETUP_F,SPI_CLK_PRE_64);
+   spi_init(SPI_MASTER_DEVICE,SPI_MSB_FIRST,SPI_SAMPLE_F_SETUP_R,SPI_CLK_PRE_64);
    
    
    while(1)
    {
 	   /*receiving the information from the UART*/
 	   UART_RECEIVE_DATA(&x);
-	
-	   spi_masterSendRecv(x,&y); 
+
+	 
+		set_pin_value(PORTA,PIN0,LOW);
+		/*sending the value to the slave m_controller2*/
+	   spi_masterSendRecv(x,&y);
+	   set_pin_value(PORTA,PIN0,HIGH);
 	   
-	  set_pin_value(PORTA,PIN0,HIGH);
-	  
-	  
-	  _delay_ms(1000);
-	  
+	   _delay_ms(10);
+	 
    }
  }
 

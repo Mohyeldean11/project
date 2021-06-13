@@ -16,7 +16,6 @@ int main(void)
 	/*a variable to receive the master data*/
 	u8_t x;
 	
-		
 	  /*setting the SPI pins*/	
 	  set_pin_status(PORTB,PIN4,INPUT_FLOAT);
 	  set_pin_status(PORTB,PIN5,INPUT_FLOAT);
@@ -29,22 +28,25 @@ int main(void)
 	  
 	  
 	  /*initializing the SPI*/
-	  spi_init(SPI_SLAVE_DEVICE,SPI_MSB_FIRST,SPI_SAMPLE_R_SETUP_F,SPI_CLK_PRE_64);
+	  spi_init(SPI_SLAVE_DEVICE,SPI_MSB_FIRST,SPI_SAMPLE_F_SETUP_R,SPI_CLK_PRE_64);
     
 	
-    while (1) 
-    {
-		/*RECEIVING DATA FROM THE MASTER*/
-		spi_slaveSendRecv(00,&x);
-		
-		if (x=='a')
-		{
-			set_pin_value(PORTD,PIN3,HIGH);
-		}
-		else if(x=='b')
-		{
-			set_pin_value(PORTC,PIN2,HIGH);
-		}
-    }
+	while(1)
+			{
+	
+				/*RECEIVING DATA FROM THE MASTER*/
+				spi_slaveSendRecv(0,&x);
+						
+				if (x=='a')
+				{
+					set_pin_value(PORTD,PIN3,HIGH);
+					set_pin_value(PORTC,PIN2,LOW);
+				}
+				else if(x=='b')
+				{
+					set_pin_value(PORTC,PIN2,HIGH);
+					set_pin_value(PORTD,PIN3,LOW);
+				}
+			}
 }
 

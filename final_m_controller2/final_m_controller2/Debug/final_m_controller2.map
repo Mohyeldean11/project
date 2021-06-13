@@ -165,7 +165,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x274
+.text           0x00000000      0x288
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
                 0x00000000                __vector_default
@@ -249,19 +249,19 @@ END GROUP
  .text.set_pin_value
                 0x0000013e       0x78 DIO_PROGRAM.o
                 0x0000013e                set_pin_value
- .text.main     0x000001b6       0x80 main.o
+ .text.main     0x000001b6       0x94 main.o
                 0x000001b6                main
  .text.spi_init
-                0x00000236       0x2c SPI_program.o
-                0x00000236                spi_init
+                0x0000024a       0x2c SPI_program.o
+                0x0000024a                spi_init
  .text.spi_slaveSendRecv
-                0x00000262        0xe SPI_program.o
-                0x00000262                spi_slaveSendRecv
-                0x00000270                . = ALIGN (0x2)
+                0x00000276        0xe SPI_program.o
+                0x00000276                spi_slaveSendRecv
+                0x00000284                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000270        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000270                _exit
-                0x00000270                exit
+ .fini9         0x00000284        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000284                _exit
+                0x00000284                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -280,11 +280,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000270        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000284        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000274                _etext = .
+                0x00000288                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000274
+.data           0x00800060        0x0 load address 0x00000288
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -302,8 +302,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
-                0x00000274                __data_load_start = LOADADDR (.data)
-                0x00000274                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000288                __data_load_start = LOADADDR (.data)
+                0x00000288                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -388,12 +388,12 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xa51
+.debug_info     0x00000000      0xa8b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_info    0x000004e6      0x17a DIO_PROGRAM.o
- .debug_info    0x00000660      0x210 main.o
- .debug_info    0x00000870      0x1e1 SPI_program.o
+ .debug_info    0x00000660      0x24a main.o
+ .debug_info    0x000008aa      0x1e1 SPI_program.o
 
 .debug_abbrev   0x00000000      0x6d6
  *(.debug_abbrev)
@@ -402,12 +402,12 @@ END GROUP
  .debug_abbrev  0x00000532       0x9d main.o
  .debug_abbrev  0x000005cf      0x107 SPI_program.o
 
-.debug_line     0x00000000      0x5a5
+.debug_line     0x00000000      0x5b1
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_line    0x00000116      0x233 DIO_PROGRAM.o
- .debug_line    0x00000349       0xb7 main.o
- .debug_line    0x00000400      0x1a5 SPI_program.o
+ .debug_line    0x00000349       0xc3 main.o
+ .debug_line    0x0000040c      0x1a5 SPI_program.o
 
 .debug_frame    0x00000000       0xcc
  *(.debug_frame)
@@ -415,15 +415,15 @@ END GROUP
  .debug_frame   0x00000054       0x34 main.o
  .debug_frame   0x00000088       0x44 SPI_program.o
 
-.debug_str      0x00000000      0x45e
+.debug_str      0x00000000      0x4a7
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_str     0x00000196      0x1a0 DIO_PROGRAM.o
                                 0x1c7 (size before relaxing)
- .debug_str     0x00000336       0x51 main.o
-                                0x1cb (size before relaxing)
- .debug_str     0x00000387       0xd7 SPI_program.o
-                                0x274 (size before relaxing)
+ .debug_str     0x00000336       0x9a main.o
+                                0x1d3 (size before relaxing)
+ .debug_str     0x000003d0       0xd7 SPI_program.o
+                                0x27c (size before relaxing)
 
 .debug_loc      0x00000000      0x7b4
  *(.debug_loc)
